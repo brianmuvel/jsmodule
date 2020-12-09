@@ -3,7 +3,7 @@ const NUMBER_ONE = parseInt(prompt('Ingresa un número'))
 const NUMBER_TWO = parseInt(prompt('Ingresa otro número diferente'))
 
 let resultado = NUMBER_ONE
-
+/* 
 if (NUMBER_ONE > NUMBER_TWO){
     console.log(`El primer numero ${NUMBER_ONE} es mayor que ${NUMBER_TWO}`)
 }else if (NUMBER_ONE === NUMBER_TWO){
@@ -11,3 +11,13 @@ if (NUMBER_ONE > NUMBER_TWO){
 } else {
     console.log(`El segundo numero ${NUMBER_TWO} es mayor que el primer número ${NUMBER_ONE}`)
 }
+ */
+
+
+ //operador ternario
+ // expresion ? si es true : si es false
+NUMBER_ONE > NUMBER_TWO ? 
+    console.log(`El primer numero ${NUMBER_ONE} es mayor que ${NUMBER_TWO}`) 
+    :
+    console.log(`El segundo numero ${NUMBER_TWO} es mayor que el primer número ${NUMBER_ONE}`)
+

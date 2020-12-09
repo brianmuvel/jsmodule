@@ -1,1 +1,1 @@
-console.log('consola')
+//Condicionales Clase 02 8dic20

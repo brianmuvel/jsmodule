@@ -1,4 +1,4 @@
-//Saber que calificacion tienes
+// 01-Saber que calificacion tienes
 function calificacion(score){
     if (score >= 90 && score < 101){
         alert('EXELENTE tu calificación es A!')
@@ -18,7 +18,7 @@ function calificacion(score){
 }
 
 
-//Que dia es segun el dia que le pones
+// 02-Que dia es segun el dia que le pones
 function numeroDelDia (day){    
     switch (day) {
         case '1':
@@ -47,7 +47,7 @@ function numeroDelDia (day){
     }
 }
 
-//Fabrica una tabla con dos valores. el primer valor es el numero de la tabla y el segundo valor es hasta donde va a multiplicar
+// 03-Fabrica una tabla con dos valores. el primer valor es el numero de la tabla y el segundo valor es hasta donde va a multiplicar
 function tabla(tabla, hasta){
     let multiplicador 
     for(let i=1; i<=hasta; i++){
@@ -55,8 +55,8 @@ function tabla(tabla, hasta){
         console.log(tabla + ' X  ' + multiplicador + ' = ' + tabla*multiplicador)
     }
 }
-''
 
+// 04-corre la pregunta de saber si ese numero es divisible entre 2 y 11
 function esDivisibleDosOnce (){
     let numbero = prompt('Pon un numero entre 1 y 100')
     
@@ -71,7 +71,7 @@ function esDivisibleDosOnce (){
     }
 }
 
-//Intercambiar el usuario de cualquier email por ******
+// 05-Intercambiar el usuario de cualquier email por ******
 function secretUser (email){
     let n = email.search('@')
     let email_user = email.slice(0,n)
@@ -83,14 +83,14 @@ function secretUser (email){
     console.log (user.concat(email.slice(n)))
 }
 
-//Cambia espacios por guiones (-)
+// 06-Cambia espacios por guiones (-)
 function dashIt (text){
     let texto = text
     console.log(texto.replace(/ /g,'-'))
 }
 
 
-//Imprime multiplos de 7 hasta el 100
+// 07-Imprime multiplos de 7 hasta el 100
 function multiplosSieteHastaCien (){
     for(i=1; i <= 100; i++){
         if(i%3 ===0){
@@ -101,14 +101,14 @@ function multiplosSieteHastaCien (){
     }
 }
 
-//Calcula el peso en la luna segun el peso en la tierra
+// 08-Calcula el peso en la luna segun el peso en la tierra
 function pesoLunar(earthweight) {
     let peso_lunar = (parseInt(earthweight) / 9.81) * 1.622
     console.log('Tu peso en la luna es..'+ peso_lunar + ' Kg')
 
 }
 
-//transforma un texto al reves
+// 09-transforma un texto al reves
 function reverse(texto) {
     let palabra = texto
     let reversa = ' '
@@ -118,12 +118,12 @@ function reverse(texto) {
     console.log(reversa)
 }
 
-//convierte grados fahrenheit a celsius
+// 10-convierte grados fahrenheit a celsius
 function toCelsius(f) {
     let convert = (5/9) * (f-32)
     console.log(convert)
 }
-//convierte grados celsius a fahrenheit
+// 11-convierte grados celsius a fahrenheit
 function toFahrenheit(c){
     let convert = c*(9/5)+ 32
     console.log(convert)

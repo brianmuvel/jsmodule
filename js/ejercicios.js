@@ -40,8 +40,14 @@ function queEs(tipo1, tipo2){
  * calculateDogAge(2)
  * -> Poppy tiene 14 años caninos
  */
-function calculateDogAge (nombre, edad){
-    console.log(`${nombre} tiene ${edad*7} años caninos`)
+function calculateDogAgeName (nombre, edad){
+    const c = `${nombre} tiene ${edad*7} años caninos`
+    return c
+}
+
+function calculateDogAge (edad){
+    const c = edad*7
+    return c
 }
 
 /**
@@ -52,9 +58,9 @@ function calculateDogAge (nombre, edad){
  */
 function calcGeometry(radio){
     const PI = 3.1416
-    console.log(`El área del círculo es de ${(radio*radio)* PI} y la circunferencia es de ${(2*PI)*radio}`)
+    const result = `El área del círculo es de ${(radio*radio)* PI} y la circunferencia es de ${(2*PI)*radio}`
+    return result;
 }
-
 /**
  * Crear una función que convierta los grados celsius en fahrenheit y viceversa
  * debe recibir la temparatura y si la temperatura esta en Celsius o Fahrenheit
@@ -64,10 +70,10 @@ function calcGeometry(radio){
 // 10-convierte grados fahrenheit a celsius
 function toCelsius(f) {
     let convert = (5/9) * (f-32)
-    console.log(convert)
+    return convert
 }
 // 11-convierte grados celsius a fahrenheit
 function toFahrenheit(c){
     let convert = c*(9/5)+ 32
-    console.log(convert)
+    return convert
 }

@@ -41,13 +41,12 @@ function queEs(tipo1, tipo2){
  * -> Poppy tiene 14 años caninos
  */
 function calculateDogAgeName (nombre, edad){
-    const c = `${nombre} tiene ${edad*7} años caninos`
-    return c
+    const nameAge = `${nombre} tiene ${edad*7} años caninos`
+    return nameAge
 }
 
 function calculateDogAge (edad){
-    const c = edad*7
-    return c
+    return edad*7
 }
 
 /**
@@ -56,9 +55,17 @@ function calculateDogAge (edad){
  * calcGeometry(4)
  * -> l area del circulo es NN y la circunferencia es de NN
  */
-function calcGeometry(radio){
+function calcGeometryArea(radio){
     const PI = 3.1416
-    const result = `El área del círculo es de ${(radio*radio)* PI} y la circunferencia es de ${(2*PI)*radio}`
+    const result = (radio*radio)* PI
+    return result;
+}
+const areaCirc = calcGeometryArea(2)
+console.log(areaCirc)
+
+function calcGeometryCirc(radio){
+    const PI = 3.1416
+    const result = (2*PI)*radio
     return result;
 }
 /**
@@ -77,3 +84,22 @@ function toFahrenheit(c){
     let convert = c*(9/5)+ 32
     return convert
 }
+
+function temperatureConverter (grade, type){
+    type === C ?
+    (5/9) * (grade-32):
+    grade*(9/5)+ 32
+}
+
+function factorial(number){
+    let total = 1
+    for(let i= 1; i <= number; i++){
+        //total = total * i
+        total *= i
+    }
+    return total
+}
+function add(a, b){
+    return a + b
+}
+const addTwoFactorials = add(factorial(3), factorial(4))

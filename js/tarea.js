@@ -1,91 +1,67 @@
-// Ejercicio 1 .forEach()
-// Dado un array con solo números
-// obtener el valor mas alto
-// input: [1,4,3,2,5]
-// output: -> [5]
-let arrNumber = [1,4,3,2,5]
-const ejercicio1 = arrNumber => {
-    //let algo = []
-    arrNumber.foreach(valor => valor<=valor+1)
-}
+// Ejercicio 1
+// dado el siguiente array de objetos
+let users = [
+    { firstName: 'Bradley', lastName: 'Bouley', role: 'Full Stack Resident' },
+    { firstName: 'Chloe', lastName: 'Alnaji', role: 'Full Stack Resident' },
+    { firstName: 'Jonathan', lastName: 'Baughn', role: 'Enterprise Instructor' },
+    { firstName: 'Michael', lastName: 'Herman', role: 'Lead Instructor' },
+    { firstName: 'Robert', lastName: 'Hajek', role: 'Full Stack Resident' },
+    { firstName: 'Wes', lastName: 'Reid', role: 'Instructor'},
+    { firstName: 'Zach', lastName: 'Klabunde', role: 'Instructor'}
+]
+// obtener un nuevo objeto con esta estructura
+//-> {
+//   'Bradley Bouley': 'Full Stack Resident',
+//   'Chloe Alnaji': 'Full Stack Resident',
+//   'Jonathan Baughn': 'Enterprise Instructor',
+//   'Michael Herman': 'Lead Instructor',
+//   'Robert Hajek': 'Full Stack Resident',
+//   'Wes Reid': 'Instructor',
+//   'Zach Klabunde': 'Instructor'
+//   }
+/* let full = users.forEach(value =>{
+    let fullName = value['firstName']+ ' ' + value['lastName']
+    let role = value['role']
+    console.log( fullName +': '+ role)
+}) */
 
-const ejercicioUno = arrNumber => {
-    let arrayToFill = []
-    arrNumber.forEach(esAlto => {
-        if(esAlto < arrNumber){
+let joinUsers = users.reduce( (acc, user) => {
+    let userName = user.firstName + ' ' + user.lastName
+    acc[userName] = user.role
+    return acc
+}, {})
+console.log(joinUsers)
 
-            arrayToFill.push(esAlto)
-        }
-    })
-    return arrayToFill
-}
+//ejercicio 2
+const filterUserByRole = (arr, role) => arr.filter(user => user.role === role )
+let resultado2 = filterUserByRole(users, 'Instructor')
+console.log(resultado2)
+// ejercicio 3
+// tomando el siguiente array de objetos
+let persons = [
+    {name:'Bob' , age: 30, voted: true},
+    {name:'Jake' , age: 32, voted: true},
+    {name:'Kate' , age: 25, voted: false},
+    {name:'Sam' , age: 20, voted: false},
+    {name:'Phil' , age: 21, voted: true},
+    {name:'Ed' , age:55, voted:true},
+    {name:'Tami' , age: 54, voted:true},
+    {name: 'Mary', age: 31, voted: false},
+    {name: 'Becky', age: 43, voted: false},
+    {name: 'Joey', age: 41, voted: true},
+    {name: 'Jeff', age: 30, voted: true},
+    {name: 'Zack', age: 19, voted: false}
+]
+// obtener lo siguiente
+// 1. Cantidad de personas que votaron
+// 2. Cual es el promedio de Edad de los votantes
+const personVoted = persons.reduce( (acc, person) => {
+    return person.voted === true ? acc + 1: acc
+}, 0);
+console.log(personVoted)
 
-let resultadoArrayUno = ejercicioUno(arrNumber)
+const averageAgeVoters = persons.reduce( (acc, person) => {
+    return acc + person.age
+}, 0) / persons.length
 
-// ejercicio 2 .map()
-// función
-// convertir todos los elementos numericos de un array
-// a strings
-// input: [1,2,3,4,5]
-// output -> ['1,','2','3','4','5']
-let arr2 = [1,2,3,4,5]
-const ejercicio2 = arr2 => arr2.map(valor => valor.toString())
-
-// ejercicio 3 .map()
-// función
-// capitalizar todos los elementos que sean strings de un array
-// input: ['hOlA', 'mundo', 123]
-// output -> ['Hola','Mundo','123]
-let arr3 = ['hOlA', 'mundo', 123]
-const ejercicio3 = arr3 => arr3.map(valor => valor.toString().slice(0,1).toUpperCase())
-let resultado3 = ejercicio3(arr3)
-
-// ejercicio 4 .filter()
-//  funcion
-// dado un array de números, filtre los elementos
-// y devuelva un array con los elementos que no estan duplicados
-// [1,2,4,2,5,4]
-// -> [1,5]
-let arr4 = [1,2,4,2,5,4]
-//const ejercicio4 = arr4 => arr4.filter(valor => valor.indexOf(arr4))
-//let resultado4 = ejercicio4(arr4)
-
-// ejercicio 5 .filter()
-//  funcion
-// dado un array de números, filtre los elementos
-// y devuelva un array con los elementos duplicados
-let arr5 = [1,2,4,2,5,4]
-let arr5Previo = []
-// -> [2,4]
-function esDuplicado (arr5){
-    return arr5 == arr5Previo
-}
-
-
-// ejercicio 7 .filter()
-//  funcion
-// dado un array de años, filtre los elementos
-// y devuelva un array con los años que son bisiesto
-let years = [1990, 2000, 2001, 2020]
-// -> [2000,2020]
-const ejercicio7 = years => years.filter(valor => valor/100 ===0 && valor/400 ===0|| valor%4===0)
-
-const arrReduce = ['a','b','c','c','d','f']
-const searchOcurrence = (arrReduce, elTosearch) => {
-    let ocurrence = arrReduce.reduce((accumulador, current) => {
-        let suma = current === elTosearch ? 1 : 0
-        return accumulador+suma
-    }, 0 )
-    return ocurrence
-}
-let resultados = searchOcurrence(arrReduce)
-
-
-
-
-
-
-const frase = ['en','algun','lugar','de','la','mancha']
-
-let resutadoFrase = frase.reduce((arre, palabra)=> `${arre.toString()} ${palabra}`)
-//let resutadoFrase = frase.reduce((arre, palabra)=> arre + ' ' + palabra,'')
+console.log(averageAgeVoters)

@@ -1,5 +1,5 @@
 // Ejercicio 1
-// dado el siguiente array de objetos
+// dado el siguiene array de objetos
 let users = [
     { firstName: 'Bradley', lastName: 'Bouley', role: 'Full Stack Resident' },
     { firstName: 'Chloe', lastName: 'Alnaji', role: 'Full Stack Resident' },
@@ -8,36 +8,35 @@ let users = [
     { firstName: 'Robert', lastName: 'Hajek', role: 'Full Stack Resident' },
     { firstName: 'Wes', lastName: 'Reid', role: 'Instructor'},
     { firstName: 'Zach', lastName: 'Klabunde', role: 'Instructor'}
-]
-// obtener un nuevo objeto con esta estructura
-//-> {
-//   'Bradley Bouley': 'Full Stack Resident',
-//   'Chloe Alnaji': 'Full Stack Resident',
-//   'Jonathan Baughn': 'Enterprise Instructor',
-//   'Michael Herman': 'Lead Instructor',
-//   'Robert Hajek': 'Full Stack Resident',
-//   'Wes Reid': 'Instructor',
-//   'Zach Klabunde': 'Instructor'
-//   }
-/* let full = users.forEach(value =>{
-    let fullName = value['firstName']+ ' ' + value['lastName']
-    let role = value['role']
-    console.log( fullName +': '+ role)
-}) */
+];
 
-let joinUsers = users.reduce( (acc, user) => {
+// obtener un nuevo array con esta estructura
+//-> {
+//    'Bradley Bouley': 'Full Stack Resident',
+//   'Chloe Alnaji': 'Full Stack Resident'
+//      ....
+//   }
+
+const joinUsers = users.reduce( (acc, user) => {
     let userName = user.firstName + ' ' + user.lastName
     acc[userName] = user.role
     return acc
 }, {})
-console.log(joinUsers)
 
-//ejercicio 2
+
+
+
+//  tomando el array users,
+//  hacer una funcion que reciba 2 parametros (arrayUsers, role)
+//  y retorne un array con los usuarios que cumplan con el role
 const filterUserByRole = (arr, role) => arr.filter(user => user.role === role )
-let resultado2 = filterUserByRole(users, 'Instructor')
-console.log(resultado2)
+
+
 // ejercicio 3
 // tomando el siguiente array de objetos
+// filtrar lo siguiente
+// 1. Cantidad de personas que votaron
+// 2. Cual es el promedio de Edad de los votantes
 let persons = [
     {name:'Bob' , age: 30, voted: true},
     {name:'Jake' , age: 32, voted: true},
@@ -52,11 +51,9 @@ let persons = [
     {name: 'Jeff', age: 30, voted: true},
     {name: 'Zack', age: 19, voted: false}
 ]
-// obtener lo siguiente
-// 1. Cantidad de personas que votaron
-// 2. Cual es el promedio de Edad de los votantes
+
 const personVoted = persons.reduce( (acc, person) => {
-    return person.voted === true ? acc + 1: acc
+    return person.voted == true ? acc + 1: acc
 }, 0);
 console.log(personVoted)
 

@@ -15,6 +15,23 @@
     </div>
     <div id="caja2"></div>
 
+    <div id="caja3"></div>
+
+    
+    <button onclick="addElements('#lista', 4, kodersArr)">Todos</button> 
+    <button onclick="filterKoders('a')">A</button> 
+    <button onclick="filterKoders('o')">0</button> 
+    <button onclick="filterKoders('r')">R</button>    
+    <ul id="lista">
+    </ul>
+
+
+    <select id="select" onChange="ascendente()">
+        <option value="0">Seleccionar</option>
+        <option value="1" >Ascendente</option>
+        <option value="2">Descendente</option>
+    </select>
+
     <script src="js/dom.js"></script>   
 </body>
 </html>

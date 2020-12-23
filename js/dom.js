@@ -75,6 +75,7 @@ const filterKoders = (letter) =>{
 
 //addElements('#lista', kodersArr.length, filterKoders('a'))
 
+//tarea
 function ascendente () {
     let valor = document.getElementById("select").value
     if (valor == 1){

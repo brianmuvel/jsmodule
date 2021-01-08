@@ -1,4 +1,4 @@
-const koders = ['ale', 'brian', 'carlos', 'diana', 'emmanuel']
+/* const koders = ['ale', 'brian', 'carlos', 'diana', 'emmanuel']
 
 const addelements = (selector, number, arrNumber) =>{
     for (let i = 0; i <= number|| arrNumber.lenght; i++){
@@ -8,4 +8,5 @@ const addelements = (selector, number, arrNumber) =>{
         lista.innerHTML = listext
     }
 }
-addelements('lista', 4, koders)
+addelements('lista', 4, koders) */
+

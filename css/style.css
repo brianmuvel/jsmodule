@@ -1,0 +1,14 @@
+body{
+    background-color: whitesmoke;
+}
+
+
+
+.container__box{
+    display: flex;
+    justify-content: center;
+}
+
+.d-none {
+    display: none;
+}

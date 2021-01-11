@@ -1,36 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hola Mundo</title>
-</head>
-<body>
-    <button onclick="addElements('#lista', 10, kodersArr)" >Todos</button>
-    <button onclick="filterKoders('a')" >A</button>
-    <button onclick="filterKoders('o')" >O</button>
-    <button onclick="filterKoders('r')" >R</button>
-    
-    <select name="" id="orden" >
-        <option value="" selected>Seleccionar</option>
-        <option value="a">Ascendente</option>
-        <option value="d">Descendente</option>
-    </select>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hola mundo</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css">    
+    </head>
+    <body>
 
-    <ul id="lista"></ul>
 
-    <div id="desktop">
-        Contenido de desktop
-    </div>
-    <div id="mobile">
-        Contenido MOBILE
-    </div>
+        <p id="session"></p>
 
-    <p id="session"></p>
+        <div>
+            <button class="btn-primary" id="getusers">Obtener usuario</button>
+            
+            <ul class="list__users">    
+            </ul>
 
-    <script src="js/metodos.js"></script>
-    <style>
-        .remove{display:none;}
-    </style>
-</body>
+            <button class="btn-primary" id="getposts">Obtener Posts</button>
+            <ul class="list__posts">    
+            </ul>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+        <script src="js/main-ajax.js" ></script>
+
+
+     
+    </body>
 </html>

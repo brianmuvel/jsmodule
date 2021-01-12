@@ -2,7 +2,10 @@ window.addEventListener('popstate', function (event) {
     // Log the state data to the console
     console.log("event.state");
 });
-let busqueda = location.search.slice(4)
+
+let url = new URLSearchParams(location.search)
+//let busqueda = location.search.slice(4)
+let busqueda = url.get('id')
 let id = busqueda - 1
 
 
@@ -87,3 +90,5 @@ const printUsers = (selector, arrData) => {
 }
 
 getData('https://jsonplaceholder.typicode.com/users/', printUsers, '.user_card')
+
+

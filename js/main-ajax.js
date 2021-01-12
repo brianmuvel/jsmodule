@@ -36,7 +36,7 @@ const printUsers = (selector, arrData) => {
         <div class="card-body">
           <h5 class="card-title">${user.name}</h5>
           <p class="card-text">${user.phone}</p>
-          <a href="${user.website}" class="btn btn-primary">Go somewhere</a>
+          <a href="user.html?id=${user.id}" class="btn btn-primary">Ver usuario</a>
         </div>
         </div>`
     });

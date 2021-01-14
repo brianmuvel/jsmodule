@@ -9,12 +9,11 @@ const getData = (url, funcionALlamar, selector, method = 'GET') => {
         if(request.readyState !== 4) {
             return 
         } else {
+            // status code
             if(request.status >= 200 && request.status <= 299){
                 const response  = request
                 const objectResponse = JSON.parse(response.responseText)
-                
                 funcionALlamar(selector, objectResponse)
-
             } else {
                 console.log('No se pudo ejecutar')
             }
@@ -26,19 +25,11 @@ const getData = (url, funcionALlamar, selector, method = 'GET') => {
 }
 
 const printUsers = (selector, arrData) => {
-    console.log(arrData)
     let listData =  ''
     arrData.forEach(user => {
-
-
-
-        listData += `<div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">${user.name}</h5>
-          <p class="card-text">${user.phone}</p>
-          <a href="user.html?id=${user.id}" class="btn btn-primary">Ver usuario</a>
-        </div>
-        </div>`
+        listData += `
+            <li>${user.name} ${user.phone} <a href="user.html?id=${user.id}">Ver usuario</a></li>
+        `
     });
     document.querySelector(selector).innerHTML = listData
 }
@@ -46,11 +37,7 @@ const printUsers = (selector, arrData) => {
 const printPosts = (selector, arrData) => {
     let listData =  ''
     arrData.forEach(user => {
-        listData += `<div class="card">
-        <div class="card-body">
-        <h5>${user.title}</h5>
-        <p>${user.body}</p>
-        </div></div>`
+        listData += `<li>${user.id}. ${user.title} ${user.body} </li>`
     });
     document.querySelector(selector).innerHTML = listData
 }
@@ -58,12 +45,71 @@ const printPosts = (selector, arrData) => {
 
 // loadUsers()
 
-document.getElementById('getusers').addEventListener('click', function(){
-    getData('https://jsonplaceholder.typicode.com/users', printUsers, '.list__users')
-})
-
-document.getElementById('getposts').addEventListener('click', function(){
-    getData('https://jsonplaceholder.typicode.com/posts', printPosts, '.list__posts')
-})
 
 
+// load post
+const getposts = document.getElementById('getposts')
+if(getusers){
+    getposts.addEventListener('click', function(){
+        getData('https://jsonplaceholder.typicode.com/posts', printPosts, '.list__posts')
+    })
+}
+
+
+const printUser = (selector, arrData) => {  
+    document.querySelector(selector).innerHTML = `
+    <h5 class="card-title name__user">${arrData.name}</h5>
+    <p class="card-text email__user">${arrData.email}</p>
+    <a href="${arrData.website}" target="_blank" class="btn btn-primary website__user">Ver perfil</a>
+    `
+}
+
+const userLocation = window.location;
+if(userLocation.pathname === '/user.html') {
+    let url = new URLSearchParams(location.search)
+    let id = url.get('id')
+    if(id >= 1 && id < 11){
+        getData(`https://jsonplaceholder.typicode.com/users/${id}`, printUser, '#card__user')
+    } else {
+        document.querySelector('#card__user').innerHTML = `
+        <p class="card-text email__user">El usuario no existe</p>        
+        `
+    }
+}
+
+
+// nuevo usuario
+const urlDB = 'https://koders1gpython-default-rtdb.firebaseio.com/brian/'
+
+let newUser  = {
+    id: 1,
+    lastname: "Munoz",
+    name: "Brian",
+    urlPhoto: "https://loremflickr.com/320/240/person",
+}
+
+
+const createUser  = () => {
+    const request = new XMLHttpRequest()
+    request.addEventListener('readystatechange', () => {
+        if(request.readyState !== 4) {
+            return 
+        } else {
+            // status code
+            if(request.status >= 200 && request.status <= 299){
+                console.log(JSON.parse(request.responseText))
+            } else {
+                console.log(JSON.parse(request.responseText))
+            }
+        }
+    })
+    request.open('POST', `${urlDB}users/.json`)
+    request.send(
+        JSON.stringify({
+            id: 2,
+            name: "Brian",
+            lastname: "Munoz",
+            urlPhoto: "https://loremflickr.com/320/240/person"
+        })
+    )
+}

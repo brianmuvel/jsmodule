@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Ejercicios</h1>
+    <!-- vacations -->
+    <div id="vacations-wrapper">
+        <h1>Vacation Packages</h1>
+        <ul class="sorting">
+            <li><a href="#todos">Todos</a></li>
+            <li><a href="#america">America</a></li>
+            <li><a href="#europa">Europe</a></li>
+            <li><a href="#asia">Asia</a></li>
+        </ul>
+        <ul id="vacations">
+            <li class="vacation america">
+                <h2>San Francisco, California</h2>
+                <span class="details">$700</span>
+            </li>
+            <li class="vacation america">
+                <h2>Washington DC, District of Columbia</h2>
+                <span class="details">$400</span>
+            </li>
+            <li class="vacation europe">
+                <h2>London, England</h2>
+                <span class="details">$1,100</span>
+            </li>
+            <li class="vacation asia">
+                <h2>Shanghai, China</h2>
+                <span class="details">$1,200</span>
+            </li>
+        </ul>
+    </div>
+    <!-- faqs -->
+    <div class="ctn__faqs">
+        <ul id="faqs">
+            <li class="faq">
+                <a href="#" class="head__faq">Lorem ipsum dolor  span</a>
+                <p class="desc__faq">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto optio quasi maiores? Ad sed, maxime tenetur commodi aperiam nam aspernatur dolorem, dolores quaerat quae obcaecati veritatis. Ducimus quam reprehenderit laboriosam?</p>
+            </li>
+            <li class="faq">
+                <a href="#" class="head__faq">Lorem ipsum dolor  span</a>
+                <p class="desc__faq">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto optio quasi maiores? Ad sed, maxime tenetur commodi aperiam nam aspernatur dolorem, dolores quaerat quae obcaecati veritatis. Ducimus quam reprehenderit laboriosam?</p>
+            </li>
+            <li class="faq">
+                <a href="#" class="head__faq">Lorem ipsum dolor  span</a>
+                <p class="desc__faq">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto optio quasi maiores? Ad sed, maxime tenetur commodi aperiam nam aspernatur dolorem, dolores quaerat quae obcaecati veritatis. Ducimus quam reprehenderit laboriosam?</p>
+            </li>
+            <li class="faq">
+                <a href="#" class="head__faq">Lorem ipsum dolor  span</a>
+                <p class="desc__faq">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto optio quasi maiores? Ad sed, maxime tenetur commodi aperiam nam aspernatur dolorem, dolores quaerat quae obcaecati veritatis. Ducimus quam reprehenderit laboriosam?</p>
+            </li>
+        </ul>
+    </div>
+    <script src="js/jquery.min.js" ></script>
+    <script>
+        $(document).ready(function(){
+            $('#faqs li .desc__faq').hide()
+            $('#faqs li:first .desc__faq').show()
+        })
+        $('.head__faq').click(function(event){
+            event.preventDefault()
+            $('.desc__faq').hide()
+            $(this).next().show()
+        })
+        
+
+        $('div').addClass('list')
+        $('h2').css('color' , 'red')
+        $('.america').css('color' , 'blue')
+        $('.details').text('$199.99')
+        $('#vacations h2').text('Titulo de tu agrado')
+        
+
+        //todos
+        $('.sorting a').click(function(){
+            let continet = $(this).text()
+            if (continet === 'Todos'){
+                $('#vacations .vacation').show()
+            } else{
+                $('.vacation').hide()
+                $(`#vacations .${continet.toLowerCase()}`).show()
+                
+            }
+        })
+
+    </script>
+</body>
+</html>
+
